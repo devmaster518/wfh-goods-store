@@ -1,0 +1,111 @@
+.form-group {
+  @apply flex flex-col;
+  @apply items-start;
+  @apply relative;
+  &:not(:last-child) {
+    @apply pb-4;
+  }
+
+  label {
+    @apply text-gray-500;
+    @apply mb-1;
+    @apply text-sm;
+  }
+
+  input[type='text']:not([readonly]),
+  input[type='email']:not([readonly]),
+  input[type='number']:not([readonly]),
+  input[type='url']:not([readonly]),
+  input[type='password']:not([readonly]) {
+    @apply focus:ring-1;
+    @apply focus:border-primary;
+    @apply focus:ring-primary;
+
+    &:disabled {
+      @apply text-gray-400;
+    }
+  }
+
+  textarea {
+    @apply focus:ring-1;
+    @apply focus:ring-primary;
+    resize: none;
+
+    &:disabled {
+      @apply text-gray-400;
+    }
+  }
+
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  @apply rounded-md;
+  color: var(--primary) !important;
+}
+
+[type='checkbox']:focus,
+[type='radio']:focus {
+  @apply ring-primary;
+}
+
+[type='text'],
+[type='email'],
+[type='url'],
+[type='password'],
+[type='number'],
+[type='date'],
+[type='datetime-local'],
+[type='month'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='week'],
+[multiple],
+textarea,
+select {
+  @apply outline-none;
+  @apply border-gray-200 bg-gray-50 rounded-lg;
+  transition: all 0.3s;
+
+
+  &:not(readonly) {
+    @apply focus:border-primary;
+  }
+
+  &::placeholder {
+    @apply text-gray-300;
+  }
+
+  &.ng-invalid.ng-dirty.ng-touched {
+    @apply focus:ring-1;
+    @apply focus:border-red-400;
+    @apply focus:ring-red-400;
+  }
+
+  &:read-only {
+    @apply focus:border-gray-200 focus:ring-0 cursor-not-allowed;
+  }
+}
+
+.group-validation.ng-invalid.ng-dirty.ng-touched {
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply ring-1;
+    @apply border-red-400;
+    @apply ring-red-400;
+  }
+}
